@@ -37,9 +37,9 @@ Phone.prototype.printInfo = function() {
 };
 
 
-var samsung = new Phone("Samsung Galaxy S6", 1250, "brązowy", "https://cdn2.techadvisor.co.uk/cmsdata/features/3596185/Samsung_Galaxy_S6_Edge_2_800.jpg", "samsung");
-var iPhone6s = new Phone("apple", 2750, "różowy", "https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/r/ef/refurb/iphone6s/refurb-iphone6s-rosegold?wid=1000&hei=1000&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1476208848115", "apple");
-var onePlus = new Phone("huawei", 2050, "czarny", "http://img.c.huaweistatic.com/content/dam/huawei-cbg-site/en/mkt/pdp/phones/p9lite/assets/matebook/images/index-img/sec9/phone2.png", "one-plus");
+var samsung = new Phone("Samsung Galaxy S6", 1000, "brązowy", "http://www.komputerswiat.pl/media/2015/107/3843430/edge_p.jpg", "samsung");
+var iPhone6s = new Phone("iPhone6s", 1000, "różowy", "http://gadgetlio.com/wp-content/uploads/2015/07/kuuzagy.png", "apple");
+var onePlus = new Phone("huawei", 1000, "czarny", "http://img.c.huaweistatic.com/content/dam/huawei-cbg-site/weu/uk/support/P10&P10%20PLUS.png", "one-plus");
 
 
 	
@@ -49,13 +49,17 @@ onePlus.printInfo();
 
 //				apply Discount
 Phone.prototype.applyDiscount = function(discountValue) {
-	var discountedPrice = this.price - discountValue;
-};
+	this.price = this.price - discountValue;
+}
 
-Phone.applyDiscount(100); // nic się nie wypisuje
+samsung.applyDiscount(100);
+iPhone6s.applyDiscount(100);
+onePlus.applyDiscount(100);
 
+
+//console.log(typeof nowaCena + nowaCena);
 Phone.prototype.printInfoDiscountedPrice = function() {
-	var mySecondPrintInfo = `${this.brand} po obniżce kosztuje ${this.discountedPrice}$`;
+	var mySecondPrintInfo = `${this.brand} po obniżce kosztuje ${this.price}$`;
 	console.log(capitaliseFirstLetterSentence(mySecondPrintInfo));
 };
 
