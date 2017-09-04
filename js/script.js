@@ -49,10 +49,13 @@ onePlus.printInfo();
 
 //				apply Discount
 Phone.prototype.applyDiscount = function(discountValue) {
-	return this.price - discountValue;
+	var discountedPrice = this.price - discountValue;
 };
+
+Phone.applyDiscount(100); // nic się nie wypisuje
+
 Phone.prototype.printInfoDiscountedPrice = function() {
-	var mySecondPrintInfo = `${this.brand} po obniżce kosztuje ${this.applyDiscount(100)}$`;
+	var mySecondPrintInfo = `${this.brand} po obniżce kosztuje ${this.discountedPrice}$`;
 	console.log(capitaliseFirstLetterSentence(mySecondPrintInfo));
 };
 
